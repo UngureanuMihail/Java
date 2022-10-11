@@ -12,6 +12,7 @@ public class Main {
         //Путь к директории для теста
         File directory = new File("/Users/mihailungureanu/Desktop/Test");
 
+        var dir = task1.getDirectory(directory);
         //Запись информации в документ directories.txt
         task1.WriteInFile(task1.getDirectory(directory) , "directories.txt");
 
@@ -21,5 +22,7 @@ public class Main {
         FileHandler fh = new FileHandler("log.txt");
         logger.addHandler(ch);
         logger.addHandler(fh);
+
+        task1.getExtension(dir);
     }
 }
