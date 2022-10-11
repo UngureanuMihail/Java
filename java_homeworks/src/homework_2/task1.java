@@ -6,6 +6,7 @@ package homework_2;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.FileWriter;
 
 public class task1 {
     public static String[] getDirectory(File dir) {
@@ -22,6 +23,15 @@ public class task1 {
             System.out.println(files[i]);
         }
         return filesList;
+    }
+
+    public static void WriteInFile(String[] files, String name) throws IOException {
+        File file = new File(name);
+        FileWriter writer = new FileWriter(file);
+        for (String items : files) {
+            writer.write(items + "\n");
+        }
+        writer.close();
     }
 }
 
