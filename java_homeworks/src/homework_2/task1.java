@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.FileWriter;
 
 public class task1 {
+    //Метод для создания массива директории и файлов
     public static String[] getDirectory(File dir) {
         File[] files = dir.listFiles();
         String[] filesList = new String[files.length];
@@ -25,6 +26,7 @@ public class task1 {
         return filesList;
     }
 
+    // Метод для записи в документ информации возвращаемой методом getDirectory()
     public static void WriteInFile(String[] files, String name) throws IOException {
         File file = new File(name);
         FileWriter writer = new FileWriter(file);
@@ -33,8 +35,23 @@ public class task1 {
         }
         writer.close();
     }
+
+    ///Метод для вывода на консоль расширения файлов
+    public static void getExtension(String[] files) {
+        String fileType = "";
+        for (int i = 0; i < files.length; i++) {
+            File file = new File(files[i]);
+            if (getFileExtension(file).length() == 0) {
+                System.out.println(files[i] + " - папка");
+            } else {
+                System.out.println("Расширение файла: " +  getFileExtension(file));
+            }
+        }
+    }
+    private static String getFileExtension(File file) {
+        String fileName = file.getName();
+        if (fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0)
+            return fileName.substring(fileName.lastIndexOf(".") + 1);
+        else return "";
+    }
 }
-
-
-
-
