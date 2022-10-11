@@ -7,7 +7,6 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         File directory = new File("/Users/mihailungureanu/Desktop/Test");
-        var get = task1.getDirectory(directory);
-
+        task1.WriteInFile(task1.getDirectory(directory) , "directories.txt");
     }
 }
